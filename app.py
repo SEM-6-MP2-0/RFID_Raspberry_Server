@@ -5,8 +5,6 @@ import time
 
 reader = SimpleMFRC522()
 app = Flask(__name__)
-Unique_roll_no = set()
-
 
 @app.route('/')
 def index():
@@ -17,6 +15,7 @@ def take_attendance():
     if request.method == 'POST':
         return "GET Attendance"
     try:
+        Unique_roll_no = set()
         print("API HIT Take Attendance")
         t_end = time.time()+20*1
         while t_end > time.time():
